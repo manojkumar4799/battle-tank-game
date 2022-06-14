@@ -12,15 +12,5 @@ public class TankView : MonoBehaviour
     {
         tankController.TankMovement();
     }
-    //public TankController tankController;
-    //private void Start()
-    //{
-
-    //}
-
-    //private void Update()
-    //{
-    //   tankController.tankmovement();
-    //}
-
+   
 }
