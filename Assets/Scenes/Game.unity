@@ -200,13 +200,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 250477786}
-  m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
+  m_LocalRotation: {x: 0.10756562, y: 0, z: 0, w: 0.994198}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 12.35, y: 0, z: 0}
 --- !u!1 &827320897
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,10 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31ded020307cdb24a92cf73b8cfc1f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tankPrefab: {fileID: 329373648853695530, guid: ee8456f532540ba44856ccfd27b75f01,
-    type: 3}
-  tankSpeed: 10
-  rotationSpeed: 200
+  tankList: {fileID: 11400000, guid: 58d7d7fa51d1c7849a5aa29d23573b49, type: 2}
 --- !u!4 &827320899
 Transform:
   m_ObjectHideFlags: 0
