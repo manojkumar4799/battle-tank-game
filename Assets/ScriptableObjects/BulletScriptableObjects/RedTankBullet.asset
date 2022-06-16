@@ -9,13 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dca5610ad87be1c439e328c4b3d4bc29, type: 3}
-  m_Name: GreenTankData
+  m_Script: {fileID: 11500000, guid: 371c7ac328e553041aa77622c488f7a5, type: 3}
+  m_Name: RedTankBullet
   m_EditorClassIdentifier: 
-  tankName: Green Player Tank
-  tankSpeed: 10
-  rotationSpeed: 200
-  health: 100
-  tankType: 2
-  tankPrefab: {fileID: 1037203949088569274, guid: ee8456f532540ba44856ccfd27b75f01,
+  bulletName: RedTankBullet
+  bulletDamage: 10
+  bulletPrefab: {fileID: 1818070803271630043, guid: 3849657b68d96c440a87e346720a6491,
     type: 3}
+  bulletSpeed: 500000

@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1308123436959939118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3602007853202170365}
+  m_Layer: 0
+  m_Name: BulletSpawnPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3602007853202170365
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308123436959939118}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.573, z: 1.482}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8820620262810380980}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8820620262810285904
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,6 +143,7 @@ Transform:
   - {fileID: 8820620262810380988}
   - {fileID: 8820620262810380990}
   - {fileID: 8820620262810380976}
+  - {fileID: 3602007853202170365}
   m_Father: {fileID: 8820620262810380984}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -162,6 +193,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8697272647affe4408e0af8dcda6f0af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tankType: 0
+  bulletSpawnAt: {fileID: 3602007853202170365}
 --- !u!54 &3339033680690307950
 Rigidbody:
   m_ObjectHideFlags: 0

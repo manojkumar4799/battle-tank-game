@@ -2,19 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TankServices : MonoBehaviour
+public class TankServices : GenericSingleton<TankServices>
 {
-    public TankScriptableObjectList tankList;
+    public TankScriptableObjectList tankListHolder;
     private int tankTypeIndex;
 
     private void Start()
     {
-        tankTypeIndex = Random.Range(0, tankList.tankList.Count);
-        CreateTank();
+        tankTypeIndex = Random.Range(0, tankListHolder.tankList.Count);
+        CreatePlayerTank();
+        CreateEnemyTanks();
     }
-    private void CreateTank()
+    private void CreatePlayerTank()
     {
-        new TankController(tankList.tankList[tankTypeIndex]);
+        new TankController(tankListHolder.tankList[tankTypeIndex]);
+    }
+
+    private void CreateEnemyTanks()
+    {
+        for (int i = 0; i < tankListHolder.tankList.Count; i++)
+        {
+            if (i == tankTypeIndex)
+            {
+                continue;
+            }
+            TankController tankContoller = new TankController(tankListHolder.tankList[i], Tanktype.Enemy);
+
+        }
     }
    
 }
