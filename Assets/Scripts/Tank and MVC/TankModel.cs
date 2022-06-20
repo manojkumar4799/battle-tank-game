@@ -1,0 +1,14 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TankModel
+{
+    public TankScriptableObject tankScriptableObject;
+
+    public TankModel(TankScriptableObject tankScriptableObject)
+    {
+        this.tankScriptableObject = tankScriptableObject;
+
+    }
+}
