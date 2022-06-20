@@ -6,9 +6,11 @@ public class TankController
 {
     TankModel tankModel;
     TankView tankPrefab;
+    bool isBulletFired = true;
     
     public TankController(TankScriptableObject tankScriptableObject)
     {
+      
         CreatePlayerTank(tankScriptableObject);
     }
 
@@ -20,6 +22,7 @@ public class TankController
 
     private void CreatePlayerTank(TankScriptableObject tankScriptableObject)
     {
+
         this.tankModel = new TankModel(tankScriptableObject);        
         tankPrefab = GameObject.Instantiate<TankView>(tankModel.tankScriptableObject.tankPrefab);        
         tankPrefab.tankController = this;
@@ -60,9 +63,16 @@ public class TankController
         
     }
 
-    public void CreateBullet()
+    public async void CreateBullet()
     {
-        new BulletContoller(tankModel.tankScriptableObject.bulletScriptableObject, tankPrefab.bulletSpawnAt);
+        if (isBulletFired)
+        {
+            isBulletFired = false;
+            new BulletContoller(tankModel.tankScriptableObject.bulletScriptableObject, tankPrefab.bulletSpawnAt);
+            await new WaitForSeconds(2f);
+            isBulletFired = true;
+        }
+       
     }
 
     void EnemyTankMovement()
@@ -71,12 +81,28 @@ public class TankController
         tankPrefab.transform.Translate(Vector3.forward * tankModel.tankScriptableObject.tankSpeed *0.7f * Time.deltaTime);
     }
 
+    public void TakeDamage(int damage)
+    {        
+        tankModel.tankHealth-=damage;
+        Debug.Log(tankModel.tankScriptableObject.tankName + " health is: " + tankModel.tankHealth);
+        if (tankModel.tankHealth <= 0)
+        {
+            DestroyTank();
+        }
+    }
+
+    private void DestroyTank()
+    {        
+        ParticleSystem VFX= tankModel.tankScriptableObject.tankExplosionVFX;        
+        tankPrefab.DestroyTank(VFX);        
+    }
+
     public void EnemyCollison()
     {
         if(tankPrefab.tankType == Tanktype.Enemy)
         {
             //Vector3 targetAngle = Quaternion.(tankPrefab.transform.rotation.x, tankPrefab.transform.rotation.y + 30, tankPrefab.transform.rotation.z);
-           // tankPrefab.transform.rotation = Quaternion.Slerp(tankPrefab.transform.rotation, targetAngle, tankModel.tankScriptableObject.rotationSpeed);
+            //tankPrefab.transform.rotation = Quaternion.Slerp(tankPrefab.transform.rotation, targetAngle, tankModel.tankScriptableObject.rotationSpeed);
             tankPrefab.transform.Rotate(0, 70, 0);
         }
     }

@@ -21,3 +21,4 @@ MonoBehaviour:
   tankType: 2
   tankPrefab: {fileID: 1037203949088569274, guid: ee8456f532540ba44856ccfd27b75f01,
     type: 3}
+  tankExplosionVFX: {fileID: 19874418, guid: ee49a9a8678ecf8468eb488e1ac8d42b, type: 3}

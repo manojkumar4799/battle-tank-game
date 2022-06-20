@@ -15,9 +15,10 @@ MonoBehaviour:
   tankName: Blue Tank Player
   tankSpeed: 13
   rotationSpeed: 180
-  health: 70
+  health: 100
   bulletScriptableObject: {fileID: 11400000, guid: 2d90ace264287f04684989cbfcf5adbe,
     type: 2}
   tankType: 3
   tankPrefab: {fileID: 7479907257973857931, guid: aa0503bd73fa66a40af87bdb8f61727b,
     type: 3}
+  tankExplosionVFX: {fileID: 19874418, guid: ee49a9a8678ecf8468eb488e1ac8d42b, type: 3}

@@ -15,9 +15,10 @@ MonoBehaviour:
   tankName: Red tank player
   tankSpeed: 12
   rotationSpeed: 190
-  health: 90
+  health: 100
   bulletScriptableObject: {fileID: 11400000, guid: 3c1a944331407d8429ac2fe7118e9edd,
     type: 2}
   tankType: 1
   tankPrefab: {fileID: 2865723206894921191, guid: 0a16d9b9cfee6a64f8b2608bca4c1e3b,
     type: 3}
+  tankExplosionVFX: {fileID: 19874418, guid: ee49a9a8678ecf8468eb488e1ac8d42b, type: 3}
