@@ -407,6 +407,10 @@ GameObject:
   - component: {fileID: 2456957807140088882}
   - component: {fileID: 5446111554012055397}
   - component: {fileID: 7784182206407220599}
+  - component: {fileID: -3842097775307327978}
+  - component: {fileID: 7595378144096981623}
+  - component: {fileID: -7883675247002881540}
+  - component: {fileID: 2035173517075615461}
   m_Layer: 0
   m_Name: GreenTank
   m_TagString: Tank
@@ -443,6 +447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tankType: 0
   bulletSpawnAt: {fileID: 130711224187692659}
+  agent: {fileID: 0}
 --- !u!54 &2456957807140088882
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -485,3 +490,61 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3855705, y: 1.8143008, z: 1.8197591}
   m_Center: {x: 0.034459114, y: 0.8847338, z: -0.1050702}
+--- !u!195 &-3842097775307327978
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3286178384066600846}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 8
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &7595378144096981623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3286178384066600846}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c8157db621a8245b16ec797a4faeb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-7883675247002881540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3286178384066600846}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 048faa05bb700d647b1a7f7424d7da7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2035173517075615461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3286178384066600846}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c49313abebcbb14fba1529dbe7ed509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
