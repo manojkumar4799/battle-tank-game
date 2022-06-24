@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class BulletContoller 
 {
+    public Tanktype myControllerTankType;
     BulletModel bulletModel;
     BulletView bulletPrefab;
-    public BulletContoller(BulletScriptableObject bulletScritableObject, Transform bulletPos)
+    public BulletContoller(BulletScriptableObject bulletScritableObject, Transform bulletPos, Tanktype tankType)
     {
         bulletModel = new BulletModel(bulletScritableObject);
         bulletPrefab = GameObject.Instantiate<BulletView>(bulletModel.bulletScriptableObject.bulletPrefab,bulletPos.position,bulletPos.rotation);
         bulletPrefab.bulletController = this;
+        myControllerTankType = tankType;
         FireBullet();
     }
 

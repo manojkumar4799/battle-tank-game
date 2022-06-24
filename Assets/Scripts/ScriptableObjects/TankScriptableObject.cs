@@ -10,7 +10,7 @@ public class TankScriptableObject : ScriptableObject
     public float rotationSpeed;
     public int health;
     public BulletScriptableObject bulletScriptableObject;
-    public TankColor tankType;
+    public Tanktype tankType;
     public TankView tankPrefab;
     public ParticleSystem tankExplosionVFX;
 }

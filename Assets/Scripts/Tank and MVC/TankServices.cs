@@ -6,6 +6,8 @@ public class TankServices : GenericSingleton<TankServices>
 {
     public TankScriptableObjectList tankListHolder;
     private int tankTypeIndex;
+    [HideInInspector]
+    public TankView playerTank;
 
     private void Start()
     {

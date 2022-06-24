@@ -7,36 +7,37 @@ public class TankController
     TankModel tankModel;
     TankView tankPrefab;
     bool isBulletFired = true;
-    
+
     public TankController(TankScriptableObject tankScriptableObject)
     {
       
         CreatePlayerTank(tankScriptableObject);
     }
 
-    public TankController(TankScriptableObject tankScriptableObject, Tanktype tankControl)
-    {
-        this.tankModel = new TankModel(tankScriptableObject);        
-        CreateEnemyTank(tankScriptableObject);
+    public TankController(TankScriptableObject tankScriptableObject, Tanktype tankType)
+    {        
+        CreateEnemyTank(tankScriptableObject, tankType);
     }
 
     private void CreatePlayerTank(TankScriptableObject tankScriptableObject)
     {
-
         this.tankModel = new TankModel(tankScriptableObject);        
-        tankPrefab = GameObject.Instantiate<TankView>(tankModel.tankScriptableObject.tankPrefab);        
+        tankPrefab = GameObject.Instantiate<TankView>(tankModel.tankScriptableObject.tankPrefab);
+        TankServices.Instance.playerTank = tankPrefab;
         tankPrefab.tankController = this;
         SetupCamera();
     }
 
-    public void CreateEnemyTank(TankScriptableObject tankScriptableObject)
+    public void CreateEnemyTank(TankScriptableObject tankScriptableObject, Tanktype tankType)
     {
-        
+
+        this.tankModel = new TankModel(tankScriptableObject);
         this.tankPrefab = GameObject.Instantiate<TankView>(tankModel.tankScriptableObject.tankPrefab);
-        tankPrefab.tankType = Tanktype.Enemy;
-        tankPrefab.tankController = this;             
+        tankPrefab.tankType = tankType;
+        tankPrefab.tankController = this;
 
     }
+
 
     void SetupCamera()
     {
@@ -55,12 +56,8 @@ public class TankController
             float rotation = Input.GetAxis("Horizontal1") * tankModel.tankScriptableObject.rotationSpeed * Time.deltaTime;
             tankPrefab.transform.Translate(0, 0, forward);
             tankPrefab.transform.Rotate(0, rotation, 0);
-        }
-        if(tankPrefab.tankType == Tanktype.Enemy)
-        {
-            EnemyTankMovement();
-        }
-        
+        }    
+
     }
 
     public async void CreateBullet()
@@ -68,21 +65,16 @@ public class TankController
         if (isBulletFired)
         {
             isBulletFired = false;
-            new BulletContoller(tankModel.tankScriptableObject.bulletScriptableObject, tankPrefab.bulletSpawnAt);
+            new BulletContoller(tankModel.tankScriptableObject.bulletScriptableObject, tankPrefab.bulletSpawnAt, tankPrefab.tankType);
             await new WaitForSeconds(2f);
             isBulletFired = true;
         }
        
     }
 
-    void EnemyTankMovement()
-    {
-       
-        tankPrefab.transform.Translate(Vector3.forward * tankModel.tankScriptableObject.tankSpeed *0.7f * Time.deltaTime);
-    }
 
     public void TakeDamage(int damage)
-    {        
+    {  
         tankModel.tankHealth-=damage;
         Debug.Log(tankModel.tankScriptableObject.tankName + " health is: " + tankModel.tankHealth);
         if (tankModel.tankHealth <= 0)
