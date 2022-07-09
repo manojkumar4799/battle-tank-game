@@ -26,4 +26,5 @@ public class BulletContoller
     {
         return bulletModel.bulletScriptableObject.bulletDamage;
     }
+   
 }

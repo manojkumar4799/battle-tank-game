@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89e923935d6d8c4a99c11e06bbdc043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletFireVFX: {fileID: 19807510, guid: 89e78efe92dfe5a42837b392cdb0bf9e, type: 3}
 --- !u!54 &5487609484987515587
 Rigidbody:
   m_ObjectHideFlags: 0

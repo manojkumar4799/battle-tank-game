@@ -5,7 +5,9 @@ using UnityEngine;
 public class BulletView : MonoBehaviour
 {
     public BulletContoller bulletController;
-  
+
+    public ParticleSystem bulletFireVFX;
+
     private void OnTriggerEnter(Collider other)
     {
         IDamagable damagable = other.gameObject.GetComponent<IDamagable>();
@@ -15,5 +17,5 @@ public class BulletView : MonoBehaviour
         }
         Destroy(gameObject);
     }
-   
+
 }

@@ -4,33 +4,57 @@ using UnityEngine;
 
 public class TankServices : GenericSingleton<TankServices>
 {
-    public TankScriptableObjectList tankListHolder;
-    private int tankTypeIndex;
+    public TankScriptableObjectList enemyTankListHolder;
+    public PlayerTankScriptableObject[] playerTankList;
+    private int playerIndex;
     [HideInInspector]
-    public TankView playerTank;
+    public PlayerTankview playerTank;
+
+    private TankPoolService tankPoolService;
+    private int numOfTanksDestroyed = 0;
+    public int NumofbulletsFired=0;
+
 
     private void Start()
     {
-        tankTypeIndex = Random.Range(0, tankListHolder.tankList.Count);
-        CreatePlayerTank();
-        CreateEnemyTanks();
-    }
-    private void CreatePlayerTank()
-    {
-        new TankController(tankListHolder.tankList[tankTypeIndex]);
-    }
+        tankPoolService = GetComponent<TankPoolService>();
 
-    private void CreateEnemyTanks()
-    {
-        for (int i = 0; i < tankListHolder.tankList.Count; i++)
+        for(int i=0; i < 4; i++)
         {
-            if (i == tankTypeIndex)
-            {
-                continue;
-            }
-            TankController tankContoller = new TankController(tankListHolder.tankList[i], Tanktype.Enemy);
-
+            tankPoolService.GetItem();
         }
+
+        CreatePlayerTank();
+    }
+    public void CreatePlayerTank()
+    {
+        playerIndex = Random.Range(0, playerTankList.Length);
+        PlayerTankController playerTankController = new PlayerTankController(playerTankList[playerIndex]);
+    }
+
+    public TankController CreateEnemyTank()
+    {
+        int enemyIndex = Random.Range(0, enemyTankListHolder.tankList.Count);
+        TankController tankContoller = new TankController(enemyTankListHolder.tankList[enemyIndex], Tanktype.Enemy);
+        return tankContoller;
+
+    }
+
+    private void Update()
+    {
+        if (NumofbulletsFired % 5 == 0 && NumofbulletsFired!=0)
+        {
+            EventService.Instance.InvokeOnBulletHIt(NumofbulletsFired);
+        }
+    }
+
+    public async void ReturnTank(TankController tankController)
+    {
+        UI.Instance.ShowKillAchivement(++numOfTanksDestroyed);
+        tankPoolService.ReturnItemToPool(tankController);
+        await new WaitForSeconds(5f);
+        TankController tankControllerItem = tankPoolService.GetItem();
+        tankControllerItem.EnableTankPrefabGameObject();
     }
    
 }

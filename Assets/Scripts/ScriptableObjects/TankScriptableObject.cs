@@ -12,6 +12,5 @@ public class TankScriptableObject : ScriptableObject
     public BulletScriptableObject bulletScriptableObject;
     public Tanktype tankType;
     public TankView tankPrefab;
-    public ParticleSystem tankExplosionVFX;
 }
 
