@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dca5610ad87be1c439e328c4b3d4bc29, type: 3}
+  m_Name: BlueTankData
+  m_EditorClassIdentifier: 
+  tankName: Blue Tank Player
+  tankSpeed: 13
+  rotationSpeed: 180
+  health: 100
+  bulletScriptableObject: {fileID: 11400000, guid: 2d90ace264287f04684989cbfcf5adbe,
+    type: 2}
+  tankType: 1
+  tankPrefab: {fileID: 7479907257973857931, guid: aa0503bd73fa66a40af87bdb8f61727b,
+    type: 3}
+  dust: {fileID: 19895962, guid: f7167ad2844254441b40b8a300b4f1fe, type: 3}
+  tankExplosionVFX: {fileID: -357759500272730855, guid: ee49a9a8678ecf8468eb488e1ac8d42b,
+    type: 3}
